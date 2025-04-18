@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Transactions</h2>
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Sender</th>
+      <th>Recipient</th>
+      <th>Amount</th>
+      <th>Timestamp</th>
+      <th>Request?</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for transaction in transactions %}
+      <tr>
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.sender.username }}</td>
+        <td>{{ transaction.recipient.username }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.timestamp }}</td>
+        <td>{{ transaction.is_request }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

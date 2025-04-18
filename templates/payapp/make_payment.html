@@ -1,0 +1,16 @@
+{% extends "style.html" %}
+
+{% block title %}Make Payment{% endblock %}
+
+{% block content %}
+
+
+<h2>Make a Payment</h2>
+<p>Your balance: £{{ user_profile.balance }}</p>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Make Payment</button>
+</form>
+
+{% endblock %}

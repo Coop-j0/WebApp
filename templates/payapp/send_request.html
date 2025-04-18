@@ -1,0 +1,14 @@
+{% extends "style.html" %}
+
+{% block title %}Send a Request{% endblock %}
+
+{% block content %}
+
+<h2>Send a Payment Request</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Send Request</button>
+</form>
+
+{% endblock %}

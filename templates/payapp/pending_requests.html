@@ -1,0 +1,47 @@
+{% extends "style.html" %}
+
+{% block title %}Pending Requests{% endblock %}
+
+{% block content %}
+
+
+<h2>Pending Payment Requests</h2>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="message">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if pending_requests %}
+    <ul>
+        {% for request in pending_requests %}
+            <li>
+                <strong>From:</strong> {{ request.sender }} <br>
+
+                <strong>Amount:</strong> £{{ request.amount }} <br>
+
+                <form method="post" action="{% url 'accept_request' request.id %}">
+
+                    {% csrf_token %}
+                    <button type="submit">Accept</button>
+
+                </form>
+
+                <form method="post" action="{% url 'decline_request' request.id %}">
+
+                    {% csrf_token %}
+                    <button type="submit">Decline</button>
+
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No pending requests.</p>
+{% endif %}
+
+
+{% endblock %}

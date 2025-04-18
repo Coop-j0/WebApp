@@ -1,0 +1,55 @@
+{% extends "style.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<h2>Welcome, {{ request.user.username }}</h2>
+
+<p>Your balance: £{{ user_profile.balance }}</p>
+
+<h3>Transaction History</h3>
+<ul>
+{% for transaction in transactions %}
+
+    <li>
+        {{ transaction.timestamp|date:"Y-m-d H:i" }} -
+        {% if transaction.type == "payment" %}
+            {% if transaction.sender == user_profile %}
+                You sent £{{ transaction.amount }} to {{ transaction.recipient.user.username }}
+            {% else %}
+                You received £{{ transaction.amount }} from {{ transaction.sender.user.username }}
+            {% endif %}
+        {% elif transaction.type == "request" %}
+            {% if transaction.sender == user_profile %}
+                You requested £{{ transaction.amount }} from {{ transaction.recipient.user.username }}
+                {% if transaction.is_request_accepted %}
+                    (Accepted)
+                {% else %}
+                    (Pending)
+                {% endif %}
+            {% else %}
+                {{ transaction.sender.user.username }} requested £{{ transaction.amount }} from you
+                {% if transaction.is_request_accepted %}
+                    (You accepted)
+                {% else %}
+                    (Pending)
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </li>
+{% empty %}
+    <li>No transactions yet.</li>
+{% endfor %}
+{% if limit < 100 %}
+    <a href="{% url 'transaction_history' %}" class="btn btn-primary mt-2">Show More</a>
+{% endif %}
+
+{% if request.user.is_staff %}
+    <a href="{% url 'admin_dashboard' %}">Go to Admin Dashboard</a>
+{% endif %}
+
+</ul>
+
+
+{% endblock %}

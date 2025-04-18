@@ -243,4 +243,4 @@ def portfolio_page(request):
 
     }
 
-    return render(request, 'payapp/transaction_history.html', context)
+    return render(request, 'register/portfolio_page.html', context)

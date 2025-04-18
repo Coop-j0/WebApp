@@ -234,3 +234,13 @@ def transaction_history(request):
     }
 
     return render(request, 'payapp/transaction_history.html', context)
+
+def portfolio_page(request):
+
+
+
+    context = {
+
+    }
+
+    return render(request, 'payapp/transaction_history.html', context)

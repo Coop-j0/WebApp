@@ -20,7 +20,7 @@ from django.urls import path, include
 from payapp import views
 
 urlpatterns = [
-    path('', lambda request: redirect('register/')),
+    path('', lambda request: redirect('portfolio_page/')),
     path('admin/', admin.site.urls),
     path('', include('register.urls')),
     path('payments/', include('payapp.urls')),

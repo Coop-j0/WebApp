@@ -14,4 +14,5 @@ urlpatterns = [
     path('register_admin/', views.register_admin, name = 'register_admin'),
     path('transaction_history/', views.transaction_history, name = 'transaction_history'),
     path('api/convert/', views.currency_conversion_api, name='currency_conversion_api'),
+    path('portfolio_page/', views.portfolio_page, name = 'portfolio_page'),
 ]

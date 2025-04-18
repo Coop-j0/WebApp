@@ -236,11 +236,22 @@ def transaction_history(request):
     return render(request, 'payapp/transaction_history.html', context)
 
 def portfolio_page(request):
-
-
-
     context = {
-
     }
-
     return render(request, 'register/portfolio_page.html', context)
+def game_projects(request):
+    context = {
+    }
+    return render(request, 'register/game_projects.html', context)
+def video_projects(request):
+    context = {
+    }
+    return render(request, 'register/video_projects.html', context)
+def software_dev(request):
+    context = {
+    }
+    return render(request, 'register/software_dev.html', context)
+def web_projects(request):
+    context = {
+    }
+    return render(request, 'register/web_projects.html', context)

@@ -9,30 +9,95 @@
         body { padding-top: 70px; }
     </style>
 </head>
+
+<style>
+    .image-row {
+  display: flex;
+  justify-content: center;      /* centers images horizontally */
+  align-items: center;          /* vertical centering (optional) */
+  gap: 50px;                    /* horizontal spacing between images */
+  flex-wrap: wrap;              /* wraps to new line if screen is too small */
+  padding: 20px;
+}
+.image-box {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* this is the key to cropping */
+  object-position: center;  /* center-crop both horizontally & vertically */
+  display: block;
+}
+
+
+    .hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+    .hover-zoom {
+  transition: transform 0.3s ease;
+}
+
+    .hover-zoom:hover {
+  transform: scale(1.05);
+}
+    .image-styled {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 4px;
+  background-color: white; /* or slightly transparent white */
+}
+
+    .image-styled:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+    .image-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+</style>
+
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">MyPayApp</a>
+            <a class="navbar-brand" href="/">Joseph's Portfolio Page</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    {% if user.is_authenticated %}
+
+                        <!--
                     <li class="nav-item"><a class="nav-link" href="/payments/dashboard/">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="/payments/pending_requests/">Software Dev</a></li>
                     <li class="nav-item"><a class="nav-link" href="/payments/send_request/">Research</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/payments/transaction_history/">Media</a></li><li class="nav-item"><a class="nav-link" href="/payments/make_payment/">Make a payment</a></li>
-                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="/payments/transaction_history/">Media</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/payments/make_payment/">Make a payment</a></li>
+                        -->
                 </ul>
                 <ul class="navbar-nav">
-                    {% if user.is_authenticated %}
+                <!--
+
                         <li class="nav-item"><a class="nav-link" href="/logout/">Logout</a></li>
-                    {% else %}
+
                         <li class="nav-item"><a class="nav-link" href="/login/">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="/register/">Register</a></li>
-                    {% endif %}
+
+                    -->
                 </ul>
             </div>
         </div>

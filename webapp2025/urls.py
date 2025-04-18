@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.shortcuts import redirect
 from django.urls import path, include
 from payapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', lambda request: redirect('payments/portfolio_page/')),
+    path('', lambda request: redirect('portfolio_page/')),
     path('admin/', admin.site.urls),
     path('', include('register.urls')),
     path('payments/', include('payapp.urls')),
+    path('portfolio_page/', views.portfolio_page, name = 'portfolio_page'),
     path('conversion/<str:from_currency>/<str:to_currency>/<str:amount>/', views.currency_conversion_api, name='currency_conversion_api'),
 ]

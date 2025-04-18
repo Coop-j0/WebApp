@@ -1,0 +1,14 @@
+{% extends "style.html" %}
+
+{% block title %}Video projects{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<video width="560" height="315" controls>
+  <source src="/staticfiles/videos/videoplayback.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+{% endblock %}

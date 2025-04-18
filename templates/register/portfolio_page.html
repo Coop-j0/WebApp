@@ -4,8 +4,23 @@
 
 {% block content %}
 
+{% load static %}
 
+<div class="image-row">
+    <div class ="image-box">
+    <a href="{% url 'video_projects' %}"><img src="{% static 'images/MediaImage.jpg' %}" alt="Click Me" class="image-styled" width="200"></a>
+    </div>
+    <div class ="image-box">
+        <a href="{% url 'game_projects' %}"><img src="{% static 'images/UnityLogo.png' %}" alt="Click Me" class="image-styled" width="200"></a>
+    </div>
+    </div>
 
-
-
+    <div class="image-row">
+    <div class ="image-box">
+    <a href="{% url 'software_dev' %}"><img src="{% static 'images/Python.png' %}" alt="Click Me" class="image-styled" width="200"></a>
+    </div>
+    <div class ="image-box">
+        <a href="{% url 'web_projects' %}"><img src="{% static 'images/HTML5.png' %}" alt="Click Me" class="image-styled" width="200"></a>
+    </div>
+    </div>
 {% endblock %}

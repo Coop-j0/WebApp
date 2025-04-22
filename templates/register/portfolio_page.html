@@ -7,20 +7,24 @@
 {% load static %}
 
 <div class="image-row">
-    <div class ="image-box">
+    <div class ="image-hover-box">
     <a href="{% url 'video_projects' %}"><img src="{% static 'images/MediaImage.jpg' %}" alt="Click Me" class="image-styled" width="200"></a>
+    <div class="hover-text">Video Projects</div>
     </div>
-    <div class ="image-box">
-        <a href="{% url 'game_projects' %}"><img src="{% static 'images/UnityLogo.png' %}" alt="Click Me" class="image-styled" width="200"></a>
+    <div class ="image-hover-box">
+        <a href="{% url 'game_projects' %}"><img src="{% static 'images/uuuunity.png' %}" alt="Click Me" class="image-styled" width="200"></a>
+    <div class="hover-text">Game Projects</div>
     </div>
     </div>
 
     <div class="image-row">
-    <div class ="image-box">
+    <div class ="image-hover-box">
     <a href="{% url 'software_dev' %}"><img src="{% static 'images/Python.png' %}" alt="Click Me" class="image-styled" width="200"></a>
+    <div class="hover-text">Software Development</div>
     </div>
-    <div class ="image-box">
+    <div class ="image-hover-box">
         <a href="{% url 'web_projects' %}"><img src="{% static 'images/HTML5.png' %}" alt="Click Me" class="image-styled" width="200"></a>
+    <div class="hover-text">Web Projects</div>
     </div>
     </div>
 {% endblock %}
